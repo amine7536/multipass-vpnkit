@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>io.pixelfactory.vpnkit</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/vpnkit</string>
+      <string>--ethernet</string>
+      <string>/var/run/vpnkit.socket</string>
+      <string>--listen-backlog</string>
+      <string>32</string>
+      <string>--mtu</string>
+      <string>1500</string>
+      <string>--allowed-bind-addresses</string>
+      <string>0.0.0.0</string>
+      <string>--port-max-idle-time</string>
+      <string>300</string>
+      <string>--max-connections</string>
+      <string>2000</string>
+      <string>--gateway-ip</string>
+      <string>192.168.66.1</string>
+      <string>--host-ip</string>
+      <string>192.168.66.2</string>
+      <string>--lowest-ip</string>
+      <string>192.168.66.3</string>
+      <string>--highest-ip</string>
+      <string>192.168.66.254</string>
+      <string>--log-destination</string>
+      <string>asl</string>
+      <string>--gc-compact-interval</string>
+      <string>1800</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+  </dict>
+</plist>

@@ -1,0 +1,20 @@
+include ../global.mk
+hyperkit=/Library/Application\ Support/com.canonical.multipass/bin/hyperkit
+
+brew:
+	@$(BREW) cask reinstall multipass
+.PHONY: brew
+
+export define install_hack
+if file ${hyperkit} | grep -q 'Mach-O.*executable'; then
+	mv ${hyperkit} ${hyperkit}.original
+	cp hyperkit.sh ${hyperkit}
+	chmod +x ${hyperkit}
+fi
+endef
+
+hack: acquire-sudo
+	@sudo bash -c "eval \"$$install_hack\""
+.PHONY: hack
+
+install: brew hack
