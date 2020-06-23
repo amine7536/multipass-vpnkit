@@ -1,4 +1,4 @@
-include ../globals.mk
+include ../global.mk
 
 vpnkit-launch-daemon: acquire-sudo ## Install vpnkit
 	@sudo cp io.pixelfactory.vpnkit.plist /Library/LaunchDaemons/io.pixelfactory.vpnkit.plist
