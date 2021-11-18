@@ -27,8 +27,6 @@
       <string>192.168.66.3</string>
       <string>--highest-ip</string>
       <string>192.168.66.254</string>
-      <string>--log-destination</string>
-      <string>asl</string>
       <string>--gc-compact-interval</string>
       <string>1800</string>
     </array>
