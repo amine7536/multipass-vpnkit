@@ -5,13 +5,14 @@ brew:
 	@$(BREW) cask reinstall multipass
 .PHONY: brew
 
-export define install_hack
+define install_hack
 if file ${hyperkit} | grep -q 'Mach-O.*executable'; then
 	mv ${hyperkit} ${hyperkit}.original
 	cp hyperkit.sh ${hyperkit}
 	chmod +x ${hyperkit}
 fi
 endef
+export install_hack
 
 hack: acquire-sudo
 	@sudo bash -c "eval \"$$install_hack\""
