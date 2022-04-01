@@ -2,7 +2,7 @@ include ../global.mk
 hyperkit=/Library/Application\ Support/com.canonical.multipass/bin/hyperkit
 
 brew:
-	@$(BREW) cask reinstall multipass
+	@$(BREW) reinstall --cask multipass
 .PHONY: brew
 
 define install_hack
