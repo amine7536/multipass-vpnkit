@@ -54,14 +54,13 @@ $ make hack
 You can use Multipass as usual. The script `hyperkit.sh` will "inject" the network interface `virtio-vpnkit,path=/var/run/vpnkit.socket`.
 
 ```bash
-# Start your VM
-$ multipass launch --name ubuntu
+# Start your VM with injected network configured
+$ multipass launch --name ubuntu --cloud-init - <<EOF
+runcmd:
+  - dhclient enp0s2f1
+EOF
 
-# Configure network
-$ multipass exec ubuntu -- bash -c "sudo dhclient enp0s2f1"
-cmp: EOF on /tmp/tmp.n9kuxd3EyQ which is empty
-
-# Get ip
+# Check ip
 $ multipass exec ubuntu -- ifconfig enp0s2f1
 enp0s2f1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.66.5  netmask 255.255.255.0  broadcast 192.168.66.255
